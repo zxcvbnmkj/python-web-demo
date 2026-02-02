@@ -10,7 +10,7 @@ brew install cmake
   - `pdm add pyarrow==15.0.2`，默认的 23.0.0 版本没有 mac11 对应的预编译 wheel 包，需要从头构建，依赖 cmake，其他操作系统应该没有这个问题
   - `pdm add streamlit`
   - 成功安装最新版本的 1..53.1
-  - `source /Users/xxx/venv/python-web-demo-K0cGvqI--3.10/bin/activate
+  - `source /Users/xxx/venv/python-web-demo-K0cGvqI--3.10/bin/activate`
   - `streamlit run streamlit/app.py`
 - `gradio==4.29.0` 和 `fastapi==0.112.4` 可以兼容，这两个库都不能随意改版本，非常容易有冲突
 
