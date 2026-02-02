@@ -9,8 +9,7 @@ app = FastAPI()
 def read_root():
     return {"Hello": "World"}
 
-#因为item_id是个变量，因此网址需要写作/items/字符串。或者/items/任意变量名=字符串
-#app.get这里规定了是get请求
+# 因为 item_id 是个变量，因此网址需要写作 /items/字符串。或者 /items/任意变量名=字符串
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
@@ -27,7 +26,7 @@ def read_item(item_id: int, q: Union[str, None] = None):
 或者http://127.0.0.1:8000/items/5?aaaa（任意）=hahaha
 或者http://127.0.0.1:8000/items/5?hahaha
 
-！！！但是一般都写作q=hahaha，函数形参是什么，路径就写什么
+一般都写作q=hahaha，函数形参是什么，路径就写什么
 输出
 {
     "item_id": 5,

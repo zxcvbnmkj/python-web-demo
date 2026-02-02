@@ -1,7 +1,5 @@
 import gradio as gr
 
-
-# 一个简单计算器，含实例说明
 def calculator(num1, operation, num2):
     if operation == "add":
         return num1 + num2
@@ -35,9 +33,7 @@ demo = gr.Interface(
     ],
     # 设置网页标题
     title="Toy Calculator",
-    # 左上角的描述文字
     description="Here's a sample toy calculator. Enjoy!",
-    # 左下角的文字
     article="Check out the examples",
 )
 demo.launch()

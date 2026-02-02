@@ -1,13 +1,13 @@
 import random
 import gradio as gr
+
+
 def chat(message, history):
     history = history or []
     message = message.lower()
     if message.startswith("how many"):
         response = random.randint(1, 10)
     elif message.startswith("how"):
-        # 支持Markdown的一个子集，包括粗体、斜体、代码、表格。
-        # 以下格式都可正常显示
         response = random.choice(["## Great\nAA", "Good<br>HHH", "Okay\nFW", "<h1>Bad<br>QS"])
     elif message.startswith("where"):
         response = random.choice(["Here", "There", "Somewhere"])
@@ -16,12 +16,13 @@ def chat(message, history):
     history.append((message, response))
     return history, history
 
-#设置一个对话窗。作为输出显示。
+
+# 设置一个对话窗。作为输出显示。
 chatbot = gr.Chatbot()
 
-#gr.state是一个保持当前状态的组件。在后台存储一些变量方便访问和交互。【临时变量】
-#当用户刷新页面时，State 变量的值被清除
-#用法：num = gr.State(value=0)。将参数保持在num中，作为临时变量
+# gr.state是一个保持当前状态的组件。在后台存储一些变量方便访问和交互。【临时变量】
+# 当用户刷新页面时，State 变量的值被清除
+# 用法：num = gr.State(value=0)。将参数保持在num中，作为临时变量
 demo = gr.Interface(
     chat,
     # 添加state组件

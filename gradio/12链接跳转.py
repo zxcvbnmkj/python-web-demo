@@ -47,7 +47,6 @@ def get_faq_page(local_state):
 # APP_SHELL - for multiple pages
 #
 with gr.Blocks() as demo:
-
     def init_state(request: gr.Request):
 
         # TODO: ADD SECURITY/PERSISTENCE HERE
@@ -70,6 +69,7 @@ with gr.Blocks() as demo:
         result["page"] = request.query_params.get("page")
         return result  # this result populates "state"
 
+
     state = gr.State()
 
     #
@@ -84,6 +84,7 @@ with gr.Blocks() as demo:
     )
 
     content = gr.HTML("...")
+
 
     @gr.render(inputs=[state], triggers=[state.change])
     def page_content(local_state):
@@ -104,9 +105,9 @@ with gr.Blocks() as demo:
                 # SIMPLE PAGE ROUTING HERE
                 #
                 if (
-                    local_state == None
-                    or local_state["page"] == None
-                    or len(local_state["page"]) < 1
+                        local_state == None
+                        or local_state["page"] == None
+                        or len(local_state["page"]) < 1
                 ):
                     return get_landing_page(local_state), local_state
                 elif local_state["page"] == "home":
@@ -119,13 +120,14 @@ with gr.Blocks() as demo:
                         local_state,
                     )
 
+
     #
     # HACK: Would be nice to delay rendering until state is populated
     #
     def page_content_update(local_state):
         return gr.HTML("...", visible=False)
 
-    state.change(fn=page_content_update, inputs=state, outputs=content)
 
+    state.change(fn=page_content_update, inputs=state, outputs=content)
 
 demo.launch()

@@ -16,7 +16,7 @@ iface = gr.Interface(
     calculator,
     ["number", gr.components.Radio(["add", "subtract", "multiply", "divide"]), "number"],
     "number",
-    #表示输出结果根据输入，实时变化
+    # 表示输出结果根据输入，实时变化
     live=True,
 )
 
